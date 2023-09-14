@@ -32,6 +32,7 @@
 #include <sstream>
 
 #include "qasmtools/parser/parser.hpp"
+#include "qasmtools/tools/ast_printer.hpp"
 
 #include "transformations/barrier_merge.hpp"
 #include "transformations/desugar.hpp"
@@ -71,6 +72,7 @@ class Program {
      * \brief Print the formatted QASM source code
      */
     friend std::ostream& operator<<(std::ostream& os, const Program& p) {
+        print_tree(p.prog_, os);
         return os << *(p.prog_);
     }
     // transformations/optimizations/etc.
