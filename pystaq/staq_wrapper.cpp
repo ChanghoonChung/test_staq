@@ -72,9 +72,9 @@ class Program {
      * \brief Print the formatted QASM source code
      */
     friend std::ostream& operator<<(std::ostream& os, const Program& p) {
-        // qasmtools::tools::print_tree(*(p.prog_), os);
+        qasmtools::tools::print_tree(*(p.prog_), os);
         // return os << *(p.prog_);
-        return qasmtools::tools::print_tree(*(p.prog_), os);
+        return os << "\n";
     }
     // transformations/optimizations/etc.
     void desugar() { staq::transformations::desugar(*prog_); }
